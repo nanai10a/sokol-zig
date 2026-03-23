@@ -1566,6 +1566,7 @@ typedef struct sapp_touchpoint {
     float pos_y;
     sapp_android_tooltype android_tooltype; // only valid on Android
     bool changed;
+    double timestamp;
 } sapp_touchpoint;
 
 /*
@@ -6683,6 +6684,7 @@ _SOKOL_PRIVATE void _sapp_ios_touch_event(sapp_event_type type, NSSet<UITouch *>
                 cur_point->pos_x = ios_pos.x * _sapp.dpi_scale;
                 cur_point->pos_y = ios_pos.y * _sapp.dpi_scale;
                 cur_point->changed = [touches containsObject:ios_touch];
+                cur_point->timestamp = ios_touch.timestamp;
             }
         }
         if (_sapp.event.num_touches > 0) {

@@ -1537,6 +1537,7 @@ pub const Touchpoint = extern struct {
     pos_y: f32 = 0.0,
     android_tooltype: AndroidTooltype = .UNKNOWN,
     changed: bool = false,
+    timestamp: f64 = 0.0,
 };
 
 /// sapp_mousebutton
